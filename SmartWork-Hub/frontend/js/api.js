@@ -1,4 +1,4 @@
-const API_BASE = '../backend/api';
+const API_BASE = '/backend/api';
 
 async function fetchAPI(endpoint, options = {}) {
     try {
