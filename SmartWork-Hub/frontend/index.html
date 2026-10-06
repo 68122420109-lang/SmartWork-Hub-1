@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SmartWork Hub ระบบจัดการงานและทีม">
+  <title>SmartWork Hub</title>
+  <link rel="stylesheet" href="./assets/css/app.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="card" aria-labelledby="page-title">
+      <p class="eyebrow">SMARTWORK HUB</p>
+      <h1 id="page-title">เข้าสู่ระบบ</h1>
+      <p class="muted">ลงชื่อเข้าใช้เพื่อจัดการงานและทีมของคุณ</p>
+      <form id="login-form">
+        <label for="email">อีเมล</label>
+        <input id="email" name="email" type="email" autocomplete="username" required>
+        <label for="password">รหัสผ่าน</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required>
+        <button type="submit">เข้าสู่ระบบ</button>
+      </form>
+      <p id="message" class="message" role="status" aria-live="polite"></p>
+      <section id="dashboard" class="dashboard" hidden>
+        <h2>ยินดีต้อนรับ</h2>
+        <p id="user-summary" class="muted"></p>
+        <p>พื้นที่ Dashboard เริ่มต้น — โมดูลจัดการงานและทีมจะพัฒนาต่อในขั้นถัดไป</p>
+        <button id="logout-button" class="secondary" type="button">ออกจากระบบ</button>
+      </section>
+    </section>
+  </main>
+  <script type="module" src="./assets/js/app.js"></script>
+</body>
+</html>

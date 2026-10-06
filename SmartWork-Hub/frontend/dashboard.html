@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SmartWork-Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>SmartWork</h2>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="employees.html">พนักงาน</a></li>
+            <li><a href="tasks.html">งาน</a></li>
+            <li><a href="attendance.html">ลงเวลา</a></li>
+            <li><a href="announcements.html">ประกาศ</a></li>
+            <li><a href="profile.html">โปรไฟล์</a></li>
+            <li><a href="reports.html">รายงาน</a></li>
+            <li><a href="#" onclick="logout()">ออกจากระบบ</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <header>
+            <h1>Dashboard</h1>
+            <div class="user-info">Welcome, User</div>
+        </header>
+        <div class="cards">
+            <div class="card">
+                <h3>พนักงานทั้งหมด</h3>
+                <p>150</p>
+            </div>
+            <div class="card">
+                <h3>งานที่กำลังดำเนินการ</h3>
+                <p>24</p>
+            </div>
+            <div class="card">
+                <h3>งานที่เสร็จแล้ว</h3>
+                <p>102</p>
+            </div>
+        </div>
+    </div>
+    <script src="js/api.js"></script>
+    <script>
+        async function checkAuth() {
+            try {
+                const res = await fetchAPI('auth.php');
+                if (!res.authenticated) {
+                    window.location.href = 'login.html';
+                }
+            } catch(e) {
+                window.location.href = 'login.html';
+            }
+        }
+        async function logout() {
+            await fetchAPI('auth.php', {
+                method: 'POST',
+                body: JSON.stringify({ action: 'logout' })
+            });
+            window.location.href = 'login.html';
+        }
+        checkAuth();
+    </script>
+</body>
+</html>
